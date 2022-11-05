@@ -1,0 +1,44 @@
+# The URL the site will be built for
+base_url = "https://xanderio.de"
+title = "xanderio"
+description = "Some of my thoughts and some rambling"
+
+default_language = "en"
+
+compile_sass = true
+build_search_index = false
+minify_html = false
+
+generate_feed = true
+feed_filename = "rss.xml"
+
+[markdown]
+highlight_code = true
+highlight_theme = "ayu-dark"
+render_emoji = false
+external_links_target_blank = true # rel="noopener"
+external_links_no_follow = false   # rel="nofollow"
+external_links_no_referrer = true  # rel="noreferrer"
+smart_punctuation = false          # `...` to `…`, `"quote"` to `“curly”` etc
+
+[extra]
+home_subtitle = "Some of my thoughts and some rambling"
+
+footer_copyright = ''
+
+menu = [
+	{ link = "/posts", name = "Posts" },
+	{ link = "/about", name = "About" },
+]
+
+social = [
+	{ name = "mastodon", link = "https://chaos.social/@xanderio" },
+	{ name = "matrix", link = "https://matrix.to/#/@xanderio:bitflip.jetzt" },
+	{ name = "github", link = "https://github.com/xanderio" },
+	{ name = "email", link = "mailto:contact@xanderio.de" },
+]
+
+
+[extra.author]
+name = "Alexander Sieg"
+email = "contact@xanderio.de"
