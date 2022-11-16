@@ -16,7 +16,7 @@ bedeutet (ich war 7 oder 8 Jahre alt), würde auch mit Methylphenidat behandelt
 aber das wurde nach einen Jahr wieder eingestellt. Dann habe ich die Diagnose
 vergessen und später aktive unterdrückt. Es konnte doch nicht sein das ich
 anderes war, ich wollte das nicht. Das vermischt mit einer gute Portion
-Vorurteile zu den Thema und so Aussagen wie "Der Arzt will doch nur die Tabellen
+Vorurteile zu den Thema und so Aussagen wie "Der Arzt will doch nur die Tabletten
 verschreiben" habe um so mehr dazu geführt das ich das nicht haben wollte.
 
 Aber es war immer noch da, es wieder auch immer da sein. Es ist ein Teil von
