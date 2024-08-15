@@ -21,9 +21,9 @@
       rel="noopener"
       >Hermit_Zola</a
     >
-    {% if config.generate_feed %} &#183;
+    {% if config.generate_feeds %} &#183;
     <a
-      href="{{ get_url(path=config.feed_filename, trailing_slash=false) }}"
+      href="{{ get_url(path="rss.xml", trailing_slash=false) }}"
       target="_blank"
       title="rss"
       ><svg
