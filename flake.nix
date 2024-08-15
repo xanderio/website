@@ -3,42 +3,44 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-    , ...
-    }:
-    flake-utils.lib.eachDefaultSystem (system:
-    let
-      inherit (builtins) substring;
-      pkgs = import nixpkgs { inherit system; };
-    in
-    {
-      packages = rec {
-        website = pkgs.stdenvNoCC.mkDerivation {
-          pname = "xanderio-blog";
-          version = let mtime = self.lastModifiedDate; in
-            "${substring 0 4 mtime}-${substring 4 2 mtime}-${substring 6 2 mtime}";
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-linux"
+        "x68_64-linux"
+        "x68_64-darwin"
+        "aarch64-darwin"
+      ];
+      perSystem =
+        { pkgs, lib, ... }:
+        {
+          packages = rec {
+            website = pkgs.stdenvNoCC.mkDerivation {
+              pname = "xanderio-blog";
+              version =
+                let
+                  mtime = inputs.self.lastModifiedDate;
+                in
+                "${lib.substring 0 4 mtime}-${lib.substring 4 2 mtime}-${lib.substring 6 2 mtime}";
 
-          src = ./.;
-          buildInputs = [ pkgs.zola ];
-          buildPhase = ''
-            	    zola build
-            	  '';
-          installPhase = ''
-            	    mkdir -p $out
-            	    cp -r public/* $out
-            	  '';
+              src = ./.;
+              buildInputs = [ pkgs.zola ];
+              buildPhase = ''
+                  zola build
+              '';
+              installPhase = ''
+                  mkdir -p $out
+                  cp -r public/* $out
+              '';
+            };
+            default = website;
+          };
+
+          devShells.default = pkgs.mkShellNoCC { buildInputs = [ pkgs.zola ]; };
         };
-        default = website;
-      };
-
-      devShells.default = pkgs.mkShellNoCC {
-        buildInputs = [ pkgs.zola ];
-      };
-    });
+    };
 }
