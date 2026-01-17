@@ -13,8 +13,6 @@ generate_feeds = true
 feed_filenames = ["rss.xml", "atom.xml"]
 
 [markdown]
-highlight_code = true
-highlight_theme = "ayu-dark"
 render_emoji = false
 external_links_target_blank = true # rel="noopener"
 external_links_no_follow = false   # rel="nofollow"
